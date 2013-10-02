@@ -106,3 +106,19 @@ def compile_sass(config, output_dir):
                 except OSError:
                     logging.warning('[hook/compile_sass] Could not run SASS ' +
                                     'hook. (Is SASS installed?)')
+
+def compile_compass(config, output_dir):
+    '''
+    As above, but build with compass. Needs a config.rb in the media directory, with:
+    
+    css_dir = "path/to/css"
+    sass_dir = "path/to/sass"
+    
+    This can later be changed to use: compass config [path/to/config] [--sass-dir=sass --css-dir=css] to emit a config automagically
+    '''
+    try:
+        subprocess.call(['compass', 'compile', output_dir])
+    except OSError:
+        logging.warning('[hook/compile_compass] Could not run compass ' +
+                        'hook. (Is SASS+Compass installed?)')
+
