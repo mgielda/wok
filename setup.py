@@ -25,6 +25,6 @@ setup(
         'Programming Language :: Python',
     ],
     requires=['pyyaml', 'jinja2', 'Markdown', 'docutils', 'Pygments'],
-    packages=['wok'],
+    packages=['wok', 'wok.contrib'],
     scripts=['scripts/wok'],
 )
